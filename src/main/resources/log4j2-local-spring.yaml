@@ -1,0 +1,20 @@
+Configuration:
+  status: WARN
+  packages: io.opentelemetry.instrumentation.log4j.appender.v2_17
+
+  Appenders:
+    Console:
+      - name: STDOUT
+        target: SYSTEM_OUT
+        PatternLayout:
+          Pattern: "%highlight{%level}|%style{%d{ISO8601}}{cyan}|{%t}|%style{[%logger{36}]}{magenta}|%X{trace_id}|%X{trace_flags}|%X{span_id}|%msg%n"
+    OpenTelemetry:
+      - name: OpenTelemetryAppender
+
+  Loggers:
+    Root:
+      level: info
+      AppenderRef:
+        - ref: STDOUT
+        - ref: OpenTelemetryAppender
+          level: All

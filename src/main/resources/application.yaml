@@ -1,0 +1,53 @@
+springdoc:
+  show-actuator: true
+
+management:
+  server:
+    port: 8081
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  endpoints:
+    health:
+      probes:
+        enabled: true
+      show-details: always
+    web:
+      exposure:
+        include: "*"
+
+spring:
+  application:
+    name: spring-otel-sqs-issues
+
+hello:
+  world:
+    message: Welcome to Springboot K8 application
+
+
+logging:
+  config: "classpath:log4j2-spring.yaml"
+
+springTemplateApplicationBaseUrl: "https://spring-otel-sqs-issues.eu-west-2.dev.aws.mimecast.lan"
+
+# SQS Configuration
+sqs:
+  enabled: false  # Set to true to enable SQS functionality
+  queue:
+    name: "architect-test-queue"  # Name of the SQS queue
+    url: "https://sqs.us-east-1.amazonaws.com/123456789012/my-queue"  # Replace with your queue URL
+
+
+# AWS Configuration
+aws:
+  region: "us-east-1"
+  sqs:
+    endpoint:  # Leave empty for AWS, set to LocalStack endpoint for local development
+    # endpoint: "http://localhost:4566"  # LocalStack endpoint
+
+apacheClientExample:
+  maxTotalConnections: 20
+  connectionTimeout: 10000
+  socketTimeout: 10000
+  idleConnectionTimeout: 5000

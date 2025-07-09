@@ -1,0 +1,49 @@
+springdoc:
+  show-actuator: true
+
+
+management:
+  server:
+    port: 8081
+  endpoints:
+    health:
+      show-details: always
+    web:
+      exposure:
+        include: "*"
+
+
+spring:
+  application:
+    name: spring-otel-sqs-issues
+  output:
+    ansi:
+      enabled: ALWAYS
+hello:
+  world:
+    message: Welcome to Springboot K8 application
+
+mimecast:
+  security:
+    permittedApplicationRequests: "/swagger-ui/**, /v3/api-docs/**, /hello/**,  /otel/**, /otel-sqs/**"
+    ctp:
+      environment: "local"
+      serviceName: "query-api-service"
+      parser:
+        enabled: true
+        jkuDomain: "idp.mimecast-dev.com"
+        staticProperties:
+          trustAnchorPem: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURURENDQWpRQ0NRRHdwSCtUbnE4clhUQU5CZ2txaGtpRzl3MEJBUXNGQURCb01Rc3dDUVlEVlFRR0V3SkgKUWpFUE1BMEdBMVVFQ0F3R1RHOXVaRzl1TVJVd0V3WURWUVFLREF4TmFXMWxZMkZ6ZENCTWRHUXhGakFVQmdOVgpCQXNNRFVSaGRHRWdVR3hoZEdadmNtMHhHVEFYQmdOVkJBTU1FRlJsYzNRZ1EyVnlkR2xtYVdOaGRHVXdIaGNOCk1qSXdOakE1TURjMU5EUTNXaGNOTXpJd05qQTJNRGMxTkRRM1dqQm9NUXN3Q1FZRFZRUUdFd0pIUWpFUE1BMEcKQTFVRUNBd0dURzl1Wkc5dU1SVXdFd1lEVlFRS0RBeE5hVzFsWTJGemRDQk1kR1F4RmpBVUJnTlZCQXNNRFVSaApkR0VnVUd4aGRHWnZjbTB4R1RBWEJnTlZCQU1NRUZSbGMzUWdRMlZ5ZEdsbWFXTmhkR1V3Z2dFaU1BMEdDU3FHClNJYjNEUUVCQVFVQUE0SUJEd0F3Z2dFS0FvSUJBUURsZmV6TmxXWDlaTUVEZHlqc3c3a1UxTTFnbFpORWYrZmwKb01qa2pmVlM0WHRpTHVHYXRvcHNXM1ZZekEyVW9BdGxqQ3NEZjMwQVpsTjlSTEJCWW5SV09BK2dJKzZrcTB0cQp6TjIvclZxcXJLaGlYSWEyelI0S1JsSjRxM3I5cXkvSTRlQXoyRWI4T0dxYStjMlBmVWhaenlBbkpNOFhVZm5BCjlVSE5BZGgwckV2ekhqMytKNEdva0FEeGxFaktGN2NTQllnNThaeE1qMy9CZms3WmJ5aStRd3lYc3FQTDZoSGcKenFBZkNiNmNPdHdCM2xkQ3NDTUNCbHZQblhtRWF4b21KT2NFV1dYTXNJNDhPd3M2MVJPZFM5c0xZajZzbERFTQo3VVN6czluWERCZ2paSkhQTjd3Nm9ZckpjQ0htcTNDalZNUk0xdnFKRy9tRE5kSFc5VjhuQWdNQkFBRXdEUVlKCktvWklodmNOQVFFTEJRQURnZ0VCQU0rRjV4OEN1cUZTaE51cU1OMkxYL25oMThlV3JXSnBFcUQ2cUFQaFQ4ZmsKL2pjSEt3OC9hdktZMXh0YktOOHk3bi85djI3L1hWellsdDY2RnNNZEZzNkN1bzlOaGZ3eVBNWmdqUjFWVjVMZgpsSGRzOW1tcitEL0NrVUNrZWtyY2VrRmszZ2pmZ1o0c3c1S0lKdnYwUVZaSEZVZTBXcDdCcHQxaHQ1TitqdVZuCm95OE5mTlJvOUx2K0NIeVdNanZsU1lqQjF0R3dKZDBGSHdldUtNamluUFRaQWNtaVpPdnRvbTlRT0UwOUJNd3YKc1ZCTlU1WUdlem5OaTgySThlRjI2Sk5YUjVtQ3Y4TS9Tdko1bDNpbU1YZW5NL3R0QjRPbytoMUpEUHVkbi9lVAozMndUOWZNaW9DQU81RlpVVXRoczFhR3NvNTRLL3cwM3kyanlVS3ZRZ3IwPQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg
+      issuer:
+        enabled: false
+      buildWhoAmI: false
+
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+  config: "classpath:log4j2-local-spring.yaml"
+
+springTemplateApplicationBaseUrl: "https://spring-otel-sqs-issues.eu-west-2.dev.aws.mimecast.lan"

@@ -1,0 +1,39 @@
+
+
+logging:
+  config: "classpath:log4j2-local-spring.yaml"
+
+
+spring:
+  security:
+    user:
+      name: admin
+      password: admin
+
+
+# Disable Micrometer OTLP registry for local development
+management:
+  otlp:
+    metrics:
+      export:
+        enabled: false
+
+# SQS Configuration for Local Development
+sqs:
+  enabled: true  # Enable SQS for local development
+  queue:
+    url: "http://sqs.us-east-1.localhost:4566/000000000000/test-queue"  # LocalStack queue URL
+  polling:
+    enabled: true
+
+# AWS Configuration for Local Development
+aws:
+  region: "us-east-1"
+  sqs:
+    endpoint: "http://localhost:4566"  # LocalStack endpoint
+
+apacheClientExample:
+  maxTotalConnections: 20
+  connectionTimeout: 10000
+  socketTimeout: 10000
+  idleConnectionTimeout: 5000

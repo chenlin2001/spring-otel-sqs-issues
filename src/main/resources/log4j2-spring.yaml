@@ -1,0 +1,15 @@
+Configuration:
+  status: WARN
+
+  Appenders:
+    Console:
+      - name: JSON_STDOUT
+        target: SYSTEM_OUT
+        JsonTemplateLayout:
+          eventTemplateUri: "classpath:mimecast-json-layout.json"
+
+  Loggers:
+     Root:
+       level: info
+       AppenderRef:
+         - ref: JSON_STDOUT
